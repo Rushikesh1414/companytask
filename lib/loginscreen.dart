@@ -100,13 +100,13 @@ class _LoginScreenState extends State<LoginScreen> {
               //  mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/images/Frame 24.png'),
-                  SizedBox(height: 15,),
-                  Text("Login",style: TextStyle(
+            const      SizedBox(height: 15,),
+           const       Text("Login",style: TextStyle(
                     color: Colors.white,
                     fontWeight:FontWeight.w500,
                     fontSize: 20
                   ),),
-                  SizedBox(height: 100,),
+             const     SizedBox(height: 100,),
                   TextFormField(
                     controller: emailController,
                     decoration:  InputDecoration(
@@ -153,13 +153,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  Text("Don’t have an account? Create One",style: TextStyle(
+                  Text("Don’t have an account? Create One",style:const TextStyle(
                       color: Colors.white,
                       fontWeight:FontWeight.w400,
                       fontSize: 14
                   ),),
                   const SizedBox(height: 210),
-                  Text("By continuing, you are agreeing to our Terms and Conditions.",style: TextStyle(
+              const    Text("By continuing, you are agreeing to our Terms and Conditions.",style: TextStyle(
                       color: Colors.white,
                       fontWeight:FontWeight.w400,
                       fontSize: 12
