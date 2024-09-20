@@ -1,4 +1,5 @@
 import 'package:companytask/loginscreen.dart';
+import 'package:companytask/registration_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
 
-      home:  LoginScreen(),
+      home: LoginScreen(),
     );
   }
 }
