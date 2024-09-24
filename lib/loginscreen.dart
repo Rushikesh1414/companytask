@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:companytask/blankpage.dart';
-import 'package:companytask/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -54,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
         await retrieveAndPrintToken();
       //  await saveToken(token);
         // Navigate to a blank page and replace the current page
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => BlankPage()),
         );
@@ -74,100 +73,107 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-         backgroundColor: Colors.transparent,
-
-          appBar: AppBar(
-            backgroundColor: Colors.black,
-          ),
-
-          body: // cover the whole screen
-
-             SingleChildScrollView(
-               child: Padding(
-    padding: const EdgeInsets.all(20.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-    //  mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-
-                 const     SizedBox(height: 100,),
-        TextFormField(
-          controller: emailController,
-          decoration:  InputDecoration(
-            hintText: 'Email',
-            fillColor: Colors.grey,
-            filled: true,  // Background color for text field
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20), // Rounded border
-            ),
-          ),
-        ),
-        const SizedBox(height: 20),
-        TextFormField(
-          controller: passwordController,
-          decoration: InputDecoration(
-            hintText: 'Password',
-            fillColor: Colors.grey,
-
-            filled: true,  // Background color for text field
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20), // Rounded border
-            ),
-          ),
-        ),
-        const SizedBox(height: 70),
-        GestureDetector(
-          onTap: () {
-            login(emailController.text.trim(), passwordController.text.trim());
-          },
-          child: Container(
-            height: 50,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: const Center(
-              child: Text(
-                'Login',
-                style: TextStyle(color: Colors.black,
-                fontWeight: FontWeight.w400,
-                fontSize: 20),
+    return Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                'assets/images/IMG.png',
               ),
-            ),
-          ),
-        ),
-        const SizedBox(height: 15),
-        InkWell(
+            )),
 
-          onTap: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) =>  RegistrationScreen()),
-            );
-          },
-          child: Text("Don’t have an account? Create One",style:const TextStyle(
-              color: Colors.white,
-              fontWeight:FontWeight.w400,
-              fontSize: 14
-          ),),
-        ),
-        const SizedBox(height: 210),
-    const    Text("By continuing, you are agreeing to our Terms and Conditions.",style: TextStyle(
-            color: Colors.white,
-            fontWeight:FontWeight.w400,
-            fontSize: 12
-        ),),
+              child: Scaffold(
+                  
+     backgroundColor: Colors.transparent,
 
-      ],
-    ),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
 
+      body: // cover the whole screen
 
+         SingleChildScrollView(
+           child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+              //  mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/images/Frame 24.png'),
+                  SizedBox(height: 15,),
+                  Text("Login",style: TextStyle(
+                    color: Colors.white,
+                    fontWeight:FontWeight.w500,
+                    fontSize: 20
+                  ),),
+                  SizedBox(height: 100,),
+                  TextFormField(
+                    controller: emailController,
+                    decoration:  InputDecoration(
+                      hintText: 'Email',
+                      fillColor: Colors.grey,
+                      filled: true,  // Background color for text field
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20), // Rounded border
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  TextFormField(
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      fillColor: Colors.grey,
 
+                      filled: true,  // Background color for text field
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20), // Rounded border
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 70),
+                  GestureDetector(
+                    onTap: () {
+                      login(emailController.text.trim(), passwordController.text.trim());
+                    },
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Login',
+                          style: TextStyle(color: Colors.black,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 20),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  Text("Don’t have an account? Create One",style: TextStyle(
+                      color: Colors.white,
+                      fontWeight:FontWeight.w400,
+                      fontSize: 14
+                  ),),
+                  const SizedBox(height: 210),
+                  Text("By continuing, you are agreeing to our Terms and Conditions.",style: TextStyle(
+                      color: Colors.white,
+                      fontWeight:FontWeight.w400,
+                      fontSize: 12
+                  ),),
+                ],
+              ),
+           
+           
+           
+           
+                  ),
+         )
+              )
 
-        ),
-             )
     );
   }
 }
